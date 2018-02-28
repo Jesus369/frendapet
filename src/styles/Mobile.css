@@ -1,0 +1,6 @@
+@media (min-width: 400px) {
+  .portrait {
+    height: 10em;
+    width: 10em;
+  }
+}

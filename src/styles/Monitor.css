@@ -1,0 +1,48 @@
+@media (min-width: 1900px) {
+  .navbar {
+    padding: 2em;
+  }
+
+  .enter_site {
+    position: absolute;
+    right: 10em;
+    top: 1.7em;
+  }
+
+  .section_one {
+    flex-direction: row;
+    margin-bottom: 3em;
+    padding: 8em;
+  }
+
+  .sales_pitch {
+  }
+
+  .home_reg_border {
+    padding: 2em;
+  }
+
+  .home_register {
+    flex-direction: column;
+  }
+
+  .form_input {
+    font-size: .85em;
+    margin: 1em 0 1.4em 0;
+    padding: .8em .5em .8em .5em;
+    width: 20em;
+  }
+
+  .submit_form {
+    border-radius: 5px;
+    font-size: .85em;
+    margin: 0 auto 0 auto;
+    width: 5em;
+    padding: .6em;
+  }
+
+  .portrait {
+    height: 30em;
+    width: 30em;
+  }
+}
