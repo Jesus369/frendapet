@@ -1,5 +1,50 @@
 .navbar {
-  background-color: rgb(179, 252, 151);
-  font-size: 1.1em;
-  padding: 1.7em;
+  background-color: #30b9a7;
+}
+
+.enter_text {
+  color: black;
+}
+.enter_text:hover {
+  color: #bed5d2;
+}
+
+.enter_site {
+}
+
+.section_one {
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  font-family: "Bodoni 72 Oldstyle";
+}
+
+.sales_pitch {
+  font-family: "Futura";
+  list-style-type: none;
+}
+
+.home_reg_border {
+  background-color: white;
+  border: 1px solid rgb(214, 213, 213);
+}
+
+.home_register {
+  display: flex;
+}
+
+.form_input {
+  border-radius: 4px;
+  border: 1px solid rgb(218, 218, 218);
+  outline: none;
+}
+
+.submit_form {
+  background-color: rgb(235, 235, 235);
+  border: none;
+  outline: none;
+}
+.submit_form:focus {
+  background-color: rgb(206, 206, 206);
 }
