@@ -3,17 +3,6 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
 class HomeRegister extends Component {
-  render() {
-    return (
-      <div className="section_one">
-        <SalesPitch />
-        <HomeForm />
-      </div>
-    );
-  }
-}
-
-class HomeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,11 +30,10 @@ class HomeForm extends Component {
     const response = await this.props.mutate({
       variables: { firstname, lastname, email, password }
     });
-    console.log(response);
 
     const { ok } = response.data.register;
     if (ok) {
-      this.props.history.push("/");
+      console.log(response);
     } else {
       return false;
     }
@@ -55,40 +43,43 @@ class HomeForm extends Component {
     const { firstname, lastname, email, password } = this.state;
 
     return (
-      <div className="home_reg_border">
-        <form
-          className="home_register"
-          onChange={this.onChange}
-          onSubmit={this.preventRefresh}
-        >
-          <input
-            placeholder="First Name"
-            className="form_input"
-            name="firstname"
-            value={firstname}
-          />
-          <input
-            placeholder="Last Name"
-            className="form_input"
-            name="lastname"
-            value={lastname}
-          />
-          <input
-            placeholder="Email"
-            className="form_input"
-            name="email"
-            value={email}
-          />
-          <input
-            placeholder="Password"
-            className="form_input"
-            name="password"
-            value={password}
-          />
-          <button onClick={this.submitRegistry} className="submit_form">
-            Register
-          </button>
-        </form>
+      <div className="section_one">
+        <SalesPitch />
+        <div className="home_reg_border">
+          <form
+            className="home_register"
+            onChange={this.onChange}
+            onSubmit={this.preventRefresh}
+          >
+            <input
+              placeholder="First Name"
+              className="form_input"
+              name="firstname"
+              value={firstname}
+            />
+            <input
+              placeholder="Last Name"
+              className="form_input"
+              name="lastname"
+              value={lastname}
+            />
+            <input
+              placeholder="Email"
+              className="form_input"
+              name="email"
+              value={email}
+            />
+            <input
+              placeholder="Password"
+              className="form_input"
+              name="password"
+              value={password}
+            />
+            <button onClick={this.submitRegistry} className="submit_form">
+              Register
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
