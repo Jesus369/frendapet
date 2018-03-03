@@ -3,15 +3,17 @@ import React, { Component } from "react";
 /* Components */
 import { Header } from "../components/Header";
 import HomeRegister from "../components/HomeRegister";
-import { SectionOne } from "../components/SectionOne";
+import { SalesPitch } from "../components/HomeRegister";
 
 export class Home extends Component {
   render() {
     return (
       <div>
         <Header />
-        <HomeRegister />
-        <SectionOne />
+        <div className="section_one">
+          <SalesPitch />
+          <HomeRegister />
+        </div>
       </div>
     );
   }
