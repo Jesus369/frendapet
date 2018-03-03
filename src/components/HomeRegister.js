@@ -43,8 +43,7 @@ class HomeRegister extends Component {
     const { firstname, lastname, email, password } = this.state;
 
     return (
-      <div className="section_one">
-        <SalesPitch />
+      <div>
         <div className="home_reg_border">
           <form
             className="home_register"
@@ -85,7 +84,7 @@ class HomeRegister extends Component {
   }
 }
 
-class SalesPitch extends Component {
+export class SalesPitch extends Component {
   render() {
     return (
       <div className="sales_pitch">
