@@ -1,0 +1,25 @@
+@media (min-width: 1200px) {
+  /* Navbar */
+  .navbar {
+    padding: 2em;
+    width: 100%;
+  }
+
+  .enter_site {
+    position: absolute;
+    right: 10em;
+    top: 1.7em;
+  }
+  .route_cat {
+    padding-left: 2em;
+  }
+
+  /* Login Navbar */
+  .login_input {
+    border-radius: 3px;
+    margin: 0 8px 0 0;
+    padding: 3px;
+  }
+  .login_button {
+  }
+}

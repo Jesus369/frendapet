@@ -1,0 +1,11 @@
+@media (min-width: 1900px) {
+  .navbar {
+    padding: 2em;
+  }
+
+  .enter_site {
+    position: absolute;
+    right: 10em;
+    top: 1.7em;
+  }
+}

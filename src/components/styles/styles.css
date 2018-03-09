@@ -1,0 +1,47 @@
+/* Navbar */
+.navbar {
+  background-color: rgb(255, 84, 84);
+  font-family: "Arial-Black";
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+}
+
+.enter_text {
+  color: #d1d1d1;
+}
+.enter_text::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  transition: width .3s;
+}
+.enter_text:hover::after {
+  width: 100%;
+  transition: width .3s;
+}
+.enter_text:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Navbar Login */
+.login_input {
+  border: none;
+  outline: none;
+}
+.login_input:focus {
+  box-shadow: 0 0 5px 3px rgb(43, 215, 228);
+}
+.login_button {
+  border-radius: 3px;
+  color: rgb(88, 88, 88);
+}
+.login_button:focus {
+  background-color: rgb(230, 230, 230);
+  border-radius: 3px;
+  outline: none;
+}
+
+/* End of Navbar */
