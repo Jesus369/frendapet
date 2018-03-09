@@ -13,7 +13,7 @@ import "../styles/styles.css";
 
 // const Bubble = ({ on = true }) => (on ? <span style={green}>●</span> : "○");
 
-const BottomTab = ({ walkers, owner, pets }) => {
+const BottomTab = ({ walkers, pets = [], owner }) => {
   return (
     <div className="bottomtab">
       <div className="walkers_container">
@@ -25,7 +25,11 @@ const BottomTab = ({ walkers, owner, pets }) => {
         <div className="category">
           Pets + {owner}
         </div>
-        <div className="pets_listings" />
+        {pets.map(pet =>
+          <div>
+            {pet.name}
+          </div>
+        )}
       </div>
     </div>
   );
