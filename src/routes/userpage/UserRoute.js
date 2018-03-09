@@ -35,7 +35,7 @@ class UserRoute extends Component {
   }
 }
 
-const getUserMutation = gql`
+const getUserQuery = gql`
   query GET_USER($id: Int!) {
     getUser(id: $id) {
       id
