@@ -49,6 +49,6 @@ const getUserQuery = gql`
   }
 `;
 
-export default graphql(getUserMutation, {
+export default graphql(getUseQuery, {
   options: ({ match }) => ({ variables: { id: match.params.id } })
 })(UserRoute);
