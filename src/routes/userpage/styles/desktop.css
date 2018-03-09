@@ -1,0 +1,57 @@
+@media (min-width: 1200px) {
+  .righttab {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 20%;
+  }
+
+  .bottomtab {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 79.8%;
+    height: 30%;
+  }
+
+  .category {
+    text-align: center;
+  }
+
+  .walkers_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .walkers_listings {
+    overflow: scroll;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: wrap column;
+    flex-flow: wrap column;
+    max-height: 15em;
+    width: 33em;
+  }
+
+  .this_walker {
+    padding: .5em 1em 0 1em;
+  }
+
+  .pets_listings {
+    overflow: scroll;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: wrap column;
+    flex-flow: wrap column;
+    max-height: 15em;
+    width: 33em;
+  }
+
+  .this_pet {
+    padding: .5em 1em 0 1em;
+  }
+}

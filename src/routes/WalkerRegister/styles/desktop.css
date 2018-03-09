@@ -1,0 +1,20 @@
+@media (min-width: 1200px) {
+  .walker_signup_intro {
+    padding-top: 5em;
+  }
+  .punchline_container {
+    flex-direction: row;
+    padding: 10em;
+  }
+  .punchline_div {
+    margin: auto 2em auto 0;
+    width: 35%;
+    height: 50vh;
+  }
+  /* .signup_punchline2 {
+    width: 20%;
+  }
+  .signup_punchline3 {
+    width: 20%;
+  } */
+}
