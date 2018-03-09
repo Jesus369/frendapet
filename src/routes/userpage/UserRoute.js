@@ -13,8 +13,7 @@ class UserRoute extends Component {
     let userId = "";
     let email = "";
     let pets = [];
-    pets.push(getUser.pets);
-    console.log(pets);
+    console.log(getUser.pets);
 
     try {
       const token = localStorage.getItem("token");
@@ -24,6 +23,11 @@ class UserRoute extends Component {
     } catch (err) {}
     return (
       <div>
+        {getUser.pets.map(pet =>
+          <div>
+            {pet.name}
+          </div>
+        )}
         <RightTab email={email} userId={userId} />
         <BottomTab owner={userId} />
       </div>
