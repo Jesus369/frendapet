@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import decode from "jwt-decode";
+import PropTypes from "prop-types";
 
 import RightTab from "./components/RightTab";
 import BottomTab from "./components/BottomTab";
@@ -7,33 +8,32 @@ import BottomTab from "./components/BottomTab";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
-class UserRoute extends Component {
-  render() {
-    const { data: { getUser = [] } } = this.props;
-    let userId = "";
-    let email = "";
-    let pets = [];
-    console.log(getUser.pets);
+const UserRoute = ({ user }) => {
+  console.log(user.firstname);
+  let userId = "";
+  let email = "";
+  try {
+    const token = localStorage.getItem("token");
+    const { user } = decode(token);
+    userId = parseInt(user.id, 10);
+    email = user.email;
+  } catch (err) {}
+  return (
+    <div>
+      {user.firstname}
+      <RightTab email={email} userId={userId} />
+      <BottomTab owner={userId} pets={user.pets} />
+    </div>
+  );
+};
 
-    try {
-      const token = localStorage.getItem("token");
-      const { user } = decode(token);
-      userId = parseInt(user.id, 10);
-      email = user.email;
-    } catch (err) {}
-    return (
-      <div>
-        {getUser.pets.map(pet =>
-          <div>
-            {pet.name}
-          </div>
-        )}
-        <RightTab email={email} userId={userId} />
-        <BottomTab owner={userId} />
-      </div>
-    );
-  }
-}
+UserRoute.propTypes = {
+  user: PropTypes.object
+};
+
+UserRoute.defaultProps = {
+  user: {}
+};
 
 const getUserQuery = gql`
   query GET_USER($id: Int!) {
@@ -49,6 +49,9 @@ const getUserQuery = gql`
   }
 `;
 
-export default graphql(getUseQuery, {
-  options: ({ match }) => ({ variables: { id: match.params.id } })
+export default graphql(getUserQuery, {
+  options: ({ match }) => ({ variables: { id: match.params.id } }),
+  props: ({ data: { getUser } }) => ({
+    user: getUser
+  })
 })(UserRoute);
