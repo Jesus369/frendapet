@@ -16,8 +16,9 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider } from "react-apollo";
 import { setContext } from "apollo-link-context";
 import { ApolloLink } from "apollo-link";
+import "semantic-ui-css/semantic.min.css";
 
-const httpLink = createHttpLink({ uri: "http://localhost:8081/graphql" });
+const httpLink = createHttpLink({ uri: "http://localhost:8082/graphql" });
 
 const middlewareLink = setContext(() => ({
   headers: {
@@ -27,22 +28,23 @@ const middlewareLink = setContext(() => ({
 }));
 
 const afterwareLink = new ApolloLink((operation, forward) => {
-  const { headers } = operation.getContext();
+  return forward(operation).map(response => {
+    const { response: { headers } } = operation.getContext();
+    if (headers) {
+      const token = headers.get("x-token");
+      const refreshToken = headers.get("x-refresh-token");
 
-  if (headers) {
-    const token = headers.get("x-token");
-    const refreshToken = headers.get("x-refresh-token");
+      if (token) {
+        localStorage.setItem("token", token);
+      }
 
-    if (token) {
-      localStorage.setItem("token", token);
+      if (refreshToken) {
+        localStorage.setItem("refreshToken", refreshToken);
+      }
     }
 
-    if (refreshToken) {
-      localStorage.setItem("refreshToken", refreshToken);
-    }
-  }
-
-  return forward(operation);
+    return response;
+  });
 });
 
 const link = afterwareLink.concat(middlewareLink.concat(httpLink));
